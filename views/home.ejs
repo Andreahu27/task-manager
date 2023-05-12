@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script defer src="./script.js"></script>
+</head>
+<body>
+
+    <h1>Task Manager</h1>
+
+    <div class="task-box">
+
+        <form action="/todo" method="POST">
+            <input type="text" id="task" name="task" autocomplete="off" placeholder="Type here to add a task..." required>
+
+            <select name="category" id="category">
+                <option value="home">Home</option>
+                <option value="admin">Admin</option>
+                <option value="coding">Coding</option>
+            </select>
+            <button type="submit" id="add-btn">Add</button>
+        </form>
+
+
+
+
+
+        <div class="categories">
+            <!-- <h2>Your to-do-list</h2> -->
+            <p>Filter</p>
+            <ul>
+                <form action="/"><button class="cat-btn">All</button></form>
+                <form action="/home"><button class="cat-btn">Home</button></form>
+                <form action="/admin"><button class="cat-btn">Admin</button></form>
+                <form action="/coding"><button class="cat-btn">Coding</button></form>
+            </ul>
+        </div>
+        
+        <div class="todos">
+            <ul>
+                <% for (let todo of todos) {%>
+                    <li>
+                       <p><%=todo.task%></p>
+
+                       <section class="btn-container">
+                            <button class="done-btn">Done</button>
+                            <form action="/todo/<%=todo._id%>?_method=delete" method="POST"><button class="del-btn">Delete</button></form>
+                            <form action="/<%=todo._id%>/editpage" method="GET"><button class="edit-btn">Edit</button></form>
+                       </section>
+        
+                    </li>
+                    <% } %>
+            </ul>
+        
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>

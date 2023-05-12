@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="task-box">
+        <h1 class="editpage-h1">Edit the to-do</h1>
+        <form action="/<%=todo.id%>/edit?_method=PATCH" method="POST">
+            <input type="text" id="task" name="task" autocomplete="off" value="<%=todo.task%>">
+
+
+              <select name="category" id="category" value="<%=todo.category%>">
+                
+                <option value="home" <% if (todo.category === "home") { %>
+                    <%= "selected" %>
+                    <% } %>
+                >Home</option>
+                
+                <option value="admin" <% if (todo.category === "admin") { %>
+                    <%= "selected" %>
+                    <% } %>
+                >Admin</option>
+                
+                <option value="coding" <% if (todo.category === "coding") { %>
+                    <%= "selected" %>
+                    <% } %>
+                >Coding</option>
+
+                            
+
+            </select>
+            <button type="submit" class="edit-btn">Edit</button>
+        </form>
+<form action="/" method="GET">
+    <button class="back-btn" action="/" method="GET">Back</button>
+
+</form>
+        
+    </div>
+
+
+</body>
+
+</html>
