@@ -38,9 +38,22 @@
             <p>Filter</p>
             <ul>
                 <form action="/"><button class="cat-btn">All</button></form>
-                <form action="/home"><button class="cat-btn">Home</button></form>
-                <form action="/admin"><button class="cat-btn">Admin</button></form>
-                <form action="/coding"><button class="cat-btn">Coding</button></form>
+
+
+                <form action="/home"><button class="cat-btn<% if (category==="home") { %>
+                    <%= "filter-selected"%>
+                   <% } %> 
+                    ">Home</button></form>
+
+                <form action="/admin"><button class="cat-btn<% if (category==="admin") { %>
+                    <%= "filter-selected"%>
+                   <% } %> 
+                    ">Admin</button></form>
+                
+                    <form action="/coding"><button class="cat-btn<% if (category==="coding") { %>
+                    <%= "filter-selected"%>
+                   <% } %> 
+                        ">Coding</button></form>
             </ul>
         </div>
         
@@ -48,10 +61,12 @@
             <ul>
                 <% for (let todo of todos) {%>
                     <li>
-                       <p><%=todo.task%></p>
+                       <p <% if(todo.done === true) {%>
+                            class=<%="todo-done"%>    
+                            <%}%> ><%=todo.task%></p>
 
                        <section class="btn-container">
-                            <button class="done-btn">Done</button>
+                            <form action="/<%=todo._id%>/done" method="GET"><button class="done-btn" >Done</button></form>
                             <form action="/todo/<%=todo._id%>?_method=delete" method="POST"><button class="del-btn">Delete</button></form>
                             <form action="/<%=todo._id%>/editpage" method="GET"><button class="edit-btn">Edit</button></form>
                        </section>

@@ -207,7 +207,7 @@ button:hover {
         margin-top: 10px;
         padding: 5px;
         width: 95%;
-        font-size: 2em;
+        font-size: 2.2em;
     }
 
 input {
@@ -228,7 +228,7 @@ input {
 .todos ul {
     margin-left: 0;
     padding-left: 0;
-    font-size: 0.45em;
+    font-size: 0.4em;
 }
 
 .categories {
@@ -275,5 +275,20 @@ li section {
     text-align: left;
 }
 
+.editpage-h1 {
+    font-size: 0.8em;
+}
+
+.edit-btn-editpage, .back-btn {
+    height: 30px;
+    font-size: 0.3em;
+}
+
     
+}
+
+
+.filter-selected {
+    background-color: rgb(128, 10, 10);
+    color: white;
 }

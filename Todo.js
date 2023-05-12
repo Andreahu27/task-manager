@@ -5,6 +5,10 @@ const mongoose = require("mongoose");
 const todoSchema = new mongoose.Schema({
   task: String,
   category: String,
+  done: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // 3. Export created schema

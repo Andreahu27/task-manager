@@ -1,18 +1,18 @@
 console.log("script connected");
 
-const doneBtns = Array.from(document.querySelectorAll(".done-btn"));
-console.log(doneBtns);
+// const doneBtns = Array.from(document.querySelectorAll(".done-btn"));
+// console.log(doneBtns);
 
-const toggleDone = (e) => {
-  e.preventDefault();
-  e.target.parentElement.parentElement.firstElementChild.classList.toggle(
-    "todo-done"
-  );
-};
+// const toggleDone = (e) => {
+//   e.preventDefault();
+//   e.target.parentElement.parentElement.firstElementChild.classList.toggle(
+//     "todo-done"
+//   );
+// };
 
-doneBtns.forEach((btn) => {
-  btn.addEventListener("click", toggleDone);
-});
+// doneBtns.forEach((btn) => {
+//   btn.addEventListener("click", toggleDone);
+// });
 
 // const categoryBtns = Array.from(document.querySelectorAll(".cat-btn"));
 

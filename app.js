@@ -41,11 +41,14 @@ app.use(methodOverride("_method"));
 
 let todos = require("./to-dos.json");
 
+let category = "all";
+
 // (5) Query the database and render on the home page
 app.get("/", async (req, res) => {
   // await Todo (Todo is the schema) allows for queries
   todos = await Todo.find({});
-  res.render("home", { todos: todos });
+
+  res.render("home", { todos: todos, category: category });
 });
 
 // (7) Update the todo creation path
@@ -58,6 +61,21 @@ app.post("/todo", async (req, res) => {
   //   todo.id = uuid.v4();
   //   todos.push(todo);
   //   fs.writeFileSync("./to-dos.json", JSON.stringify(todos));
+  res.redirect("/");
+});
+
+app.get("/:id/done", async (req, res) => {
+  const targetId = req.params.id;
+  const todoCurrent = await Todo.findById(targetId);
+  //   todoSelected.save();
+
+  const todoSelected = await Todo.updateOne(
+    { _id: targetId },
+    { $set: { done: !todoCurrent.done } }
+  );
+
+  const todoPrint = await Todo.findById(targetId);
+  console.log(todoPrint);
   res.redirect("/");
 });
 
@@ -112,12 +130,13 @@ app.patch("/:id/edit", async (req, res) => {
 
 // (8) Update category path
 // Request all todos, but filtered
+
 app.get("/:category", async (req, res) => {
   const category = req.params.category;
   // let todosCategoryFil = todos.filter((t) => t.category === category);
   const todosCategoryFil = await Todo.find({ category: category });
   console.log(todosCategoryFil);
-  res.render("home", { todos: todosCategoryFil });
+  res.render("home", { todos: todosCategoryFil, category: category });
 });
 
 const PORT = process.env.PORT || 3000;
