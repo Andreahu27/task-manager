@@ -238,8 +238,8 @@ input {
 }
 
 .done-btn, .del-btn, .edit-btn {
-font-size: 14px;
-    width: 50px;
+font-size: 11px;
+    width: 40px;
     height: 40px;
 }
 
