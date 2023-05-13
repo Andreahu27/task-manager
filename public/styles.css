@@ -203,11 +203,14 @@ button:hover {
 
 @media (max-width: 1250px) {
 
+body {
+    font-size: 15px;
+}
+
 .task-box {
         margin-top: 10px;
         padding: 5px;
         width: 95%;
-        font-size: 2.2em;
     }
 
 input {
@@ -228,16 +231,14 @@ input {
 .todos ul {
     margin-left: 0;
     padding-left: 0;
-    font-size: 0.4em;
 }
 
 .categories {
-    font-size: 0.5em;
     align-items: center;
 }
 
 .done-btn, .del-btn, .edit-btn {
-font-size: 0.7em;
+font-size: 14px;
     width: 50px;
     height: 40px;
 }
@@ -276,12 +277,11 @@ li section {
 }
 
 .editpage-h1 {
-    font-size: 0.8em;
+    font-size: 1.6em;
 }
 
 .edit-btn-editpage, .back-btn {
     height: 30px;
-    font-size: 0.3em;
 }
 
     
