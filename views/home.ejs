@@ -11,10 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <script defer src="./script.js"></script>
+    <script src="https://kit.fontawesome.com/12cc2cdcb0.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
 
     <h1>Task Manager</h1>
+
+
+
+
 
     <div class="task-box">
 
@@ -66,7 +71,12 @@
                             <%}%> ><%=todo.task%></p>
 
                        <section class="btn-container">
-                            <form action="/<%=todo._id%>/done" method="GET"><button class="done-btn" >Done</button></form>
+                            <form action="/<%=todo._id%>/done" method="GET"><button class="done-btn" >Done
+                            </button></form>
+
+
+
+
                             <form action="/todo/<%=todo._id%>?_method=delete" method="POST"><button class="del-btn">Del</button></form>
                             <form action="/<%=todo._id%>/editpage" method="GET"><button class="edit-btn">Edit</button></form>
                        </section>
